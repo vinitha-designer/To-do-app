@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+ .sp{
+        margin-left:140px ;
+        font-weight: 100;
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        padding-top:-2px ;
+        padding-bottom:-2px ;
+        background-color:rgb(201, 24, 106);
+        border: none;
+        color: white;
+        border-radius: 3px;
+        }
+        .sp1{
+        margin-left:200px ;
+        font-weight: 100;
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        padding-top:-2px ;
+        padding-bottom:-2px ;
+        background-color:rgb(75, 218, 75);
+        border: none;
+        color: white;
+        border-radius: 3px;
+        }
+        .li{
+            font-size: 1500;
+            padding: 5px;
+            position: relative;
+            left: -10px;
+            margin: 0px;
+        }
+        #ar::after{
+            content:"______________";
+            position: absolute;
+            left:35px;
+            top: 2px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+        }
+        #it{
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-right: 20px;
+        }
+        .b1{
+            padding:5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color:black;
+            color: white;
+        border-radius: 8px;
+        }
+        #img1{
+            position:absolute;
+            top:0px;
+           left:0px;
+        } 
+    .s{
+        /* border: 2px solid black; */
+        display: grid;
+        flex-direction: column ;
+        align-content: center;
+        justify-content: center;
+    }
+    h2{
+        margin-left: 85px;
+    }
+    .a1{
+        margin: 10px;
+    }
+    #l2{
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .b12{
+        border: 5px solid deeppink;
+        margin-left: 200px;
+        margin-right: 200px;        
+    }
+    </style>
+</head>
+<body class="b12">
+    <div class= s>
+    <h2>To Do List</h2>
+    <div><input type="text" id="it">
+    <button onclick="Add()" class="b1">Add Task</button>
+</div>
+    <ul type="none" id="l1">
+        <!-- <a href=""></a> -->
+         <!-- <li ></li> -->
+    </ul>
+</div>
+    <script>
+        let input = document.getElementById("it");
+        let l1 = document.getElementById("l1");
+        let b1 = document.getElementsByClassName("b1");
+        function Add(){
+            let li = document.createElement('li');
+            li.textContent ='💚';
+            l1.append(li);
+            li.className = 'li';
+            li.id = 'li1';
+            l1.setAttribute("id","l2");
+            // input.value = "";
+            let a = document.createElement('a');
+            a.textContent = `${input.value}`;
+            li.append(a);
+            a.className = 'a1';
+            a.id = 'a2';
+            // a.setAttribute("onclick","Complete()");
+            // document.getElementById('a2').setAttribute("onclick","Complete()")
+            // let at1 = document.createAttribute("onclick");
+            // at1.value = "Complete()";
+        //   document.getElementById("a2").setAttributeNode(at1);
+          let btn= document.createElement('button');
+            btn.textContent = "Delete";
+            btn.id = 'btn1';
+            li.append(btn);
+            btn.className = 'sp';
+            btn.setAttribute("onclick","Delete()");
+            let butn= document.createElement('button');
+            butn.textContent = "Complete";
+            butn.id = 'btn2';
+            li.append(butn);
+            butn.className = 'sp1';
+            butn.setAttribute("onclick","Complete()");
+            input.value = "";
+         console.log(li); 
+  }
+function Delete(){
+    let s = document.getElementById("btn1");
+event.target.parentElement.remove();
+ }
+function Complete(){
+    // let at1 = document.createAttribute("id");
+    let a = document.getElementById("a2");
+    let btn1 = document.getElementById("btn1");
+    let img = document.createElement('img');
+    img.value = '';
+    img.id = 'img1';
+    a.prepend(img);
+     img.setAttribute("src","tick.png");
+     a.setAttribute("id","ar");
+//     let ate1 = document.createAttribute("src");
+//     ate1.value = 'tick.png';
+//     document.getElementById("img1").setAttributeNode(ate1);
+//    let attribute = document.createAttribute("id");
+//            at1.value = "ar";
+//            document.getElementById("a2").setAttributeNode(at1);
+         btn1.remove();
+}
+input.addEventListener('keypress',(event)=>{
+    if(event.key == 'Enter'){
+        // b1.click();
+        Add();
+        console.log("clicked");
+    }
+})
+    </script>
+ 
+</body>
+</html>
